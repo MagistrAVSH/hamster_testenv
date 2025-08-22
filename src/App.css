@@ -31,15 +31,6 @@ html, body, .video-page {
   object-fit: contain;
 }
 
-/* Мобильная версия баннера на всю ширину */
-@media screen and (max-width: 1279px) {
-  .top-banner {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
-}
 
 /* Видео и боковой баннер */
 .video-with-side {
@@ -182,7 +173,7 @@ video {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: calc(100vw / 3);
+    height: 100px;
     background: black;
   }
 
