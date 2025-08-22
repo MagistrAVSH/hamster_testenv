@@ -1,0 +1,328 @@
+html, body, .video-page {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: black;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Адаптивная обёртка */
+.video-page {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2f2f2f;
+  min-height: 100vh; /* теперь контейнер всегда растягивается */
+}
+
+/* Мобильный верхний баннер */
+.mobile-top-banner {
+  display: none;
+}
+
+.top-banner {
+  width: 300px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* Мобильная версия баннера на всю ширину */
+@media screen and (max-width: 1279px) {
+  .top-banner {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+/* Видео и боковой баннер */
+.video-with-side {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.video-wrapper {
+  width: 100%;
+  position: relative;
+  background: black;
+  margin: 0 auto;
+}
+
+.video-layer {
+  position: relative;
+  width: 100%;
+}
+
+video {
+
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  background: black;
+}
+
+.caption {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.2em;
+  margin: 20px auto;
+
+  width: 100%;
+  padding: 0 10px;
+}
+
+/* Боковой баннер */
+.desktop-side-banner {
+  display: none;
+}
+
+.desktop-side-banner img {
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Кнопки */
+.skip-button,
+.ham-button {
+  position: absolute;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.ham-button {
+  bottom: 20px;
+  right: 20px;
+  border: 1px solid white;
+  font-weight: bold;
+}
+
+.skip-button {
+  top: 10px;
+  right: 10px;
+}
+
+.skip-button:hover,
+.ham-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.image-wrapper {
+
+  width: 100%;
+  margin: 42px auto 0;
+  text-align: center;
+  position: relative;
+}
+.image-wrapper img {
+  width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.banner-close {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: transparent;
+  border: none;
+  color: black;
+  font-size: 32px;
+  cursor: pointer;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.banner-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+@media screen and (max-width: 1279px) {
+  .video-wrapper video {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* или заменить на реальные пропорции main.mp4 */
+    height: auto;
+    object-fit: contain;
+  }
+}
+/* Медиа-запросы */
+@media screen and (max-width: 1279px) {
+
+
+  .video-page .width-wrap {
+    max-width: 1024px;
+  }
+
+  .video-page {
+    padding: 0;}
+
+  .mobile-top-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vw / 3);
+    background: black;
+  }
+
+  .desktop-side-banner {
+    display: none;
+  }
+}
+
+@media screen and (orientation: portrait) and (max-width: 1279px) {
+
+  .mobile-top-banner {
+    display: flex;
+  }
+
+  .image-wrapper  {
+    max-height: 400px;
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  .width-wrap {
+    max-width: 1516px;
+  }
+  .image-wrapper {
+    display: none;
+  }
+  .desktop-side-banner {
+    display: flex;
+    justify-content: flex-end; /* прижимает по горизонтали */
+    align-items: flex-end;     /* прижимает по вертикали */
+    width: 315px;
+    height: 615px;
+    flex-shrink: 0;
+    margin-right: 0;
+  }
+
+  .mobile-top-banner {
+    display: none;
+  }
+
+  .caption {
+    padding: 0;
+  }
+}
+
+.mobile-bottom-panel {
+  display: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .mobile-bottom-panel {
+    display: flex;
+    width: 100%;
+    height: 64px;
+    background-color: #3a3a3a;
+    color: white;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .panel-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .panel-label {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .comment-count {
+    position: absolute;
+    background: #e44;
+    color: white;
+    font-size: 10px;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.width-wrap {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.video-layer {
+  width: 100%;
+}
+
+video {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.promo-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* или другое реальное соотношение */
+  border: none;
+}
+
+@media screen and (max-width: 1279px) {
+  .promo-iframe {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .video-with-side {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-wrapper {
+    width: 100vw; /* на всю ширину экрана */
+    max-width: 100vw;
+    margin: 0;
+  }
+
+  .video-wrapper iframe,
+  .video-wrapper video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* или реальные пропорции */
+  }
+
+  .width-wrap {
+    max-width: none; /* убрать ограничение */
+  }
+}
